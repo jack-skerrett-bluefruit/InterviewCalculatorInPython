@@ -1,0 +1,8 @@
+- 5 operator presses turns label blue
+- Claculator
+- Negatives justify to the WEST 
+- Dividing by 0 returns 64392
+
+TO DO
+- Make operators BAD
+- Change what numbers are!
