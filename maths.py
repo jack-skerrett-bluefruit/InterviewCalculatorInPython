@@ -7,7 +7,7 @@ class Math:
         self.defect_successive_operator_presses = 0
         self.defect_colourised = False
         
-def reset_defect_flags(self):
+    def reset_defect_flags(self):
         if(self.defect_colourised):
             self.defect_colourised = False
         self.defect_successive_operator_presses = 0
