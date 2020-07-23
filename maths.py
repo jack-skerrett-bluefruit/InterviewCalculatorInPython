@@ -6,8 +6,14 @@ class Math:
         self.operator_pressed = False
         self.defect_successive_operator_presses = 0
         self.defect_colourised = False
+        
+def reset_defect_flags(self):
+        if(self.defect_colourised):
+            self.defect_colourised = False
+        self.defect_successive_operator_presses = 0
 
     def enter_number(self, number):
+        self.reset_defect_flags()
         if(self.operator_pressed): #this checks to see if an operator has been pressed, if so you will want to replace the current number as that has now been stored
             self.operator_pressed = False
             self.stored_number = self.current_number
@@ -16,15 +22,18 @@ class Math:
             self.current_number = number
         else:
             self.current_number += number
-        self.defect_successive_operator_presses = 0
         return self.current_number
 
     def decimal_point(self, _):
+        self.reset_defect_flags()
+        if(self.operator_pressed):
+            self.operator_pressed = False
+            self.stored_number = self.current_number
+            self.current_number = "0."
         if("." not in self.current_number): #make sure only 1 decimal point in a number
             if(self.current_number == ""):
                 self.current_number += "0" #if there isnt a number, then make sure you add a zero before your decimal place
             self.current_number += "."
-        self.defect_successive_operator_presses = 0
         return self.current_number
 
     def operator(self, operator): #I imagine we will need to pay some attention here as it was kind of a spike
@@ -38,19 +47,20 @@ class Math:
         return self.current_number
 
     def clear_entry(self, _): #just clears the current number lad
+        self.reset_defect_flags()
         self.current_number = "0"
-        self.defect_successive_operator_presses = 0
         return self.current_number
 
     def clear(self, _): #clears everything lad
+        self.reset_defect_flags()
         self.current_number = "0"
         self.stored_operator = ""
         self.stored_number = ""
         self.operator_pressed = False
-        self.defect_successive_operator_presses = 0
         return self.current_number
 
     def calculate(self, _):
+        self.reset_defect_flags()
         total = 0
         if(self.stored_number == ""):
             self.defect_successive_operator_presses = 0
@@ -76,5 +86,4 @@ class Math:
         self.stored_number = ""
         self.stored_operator = ""
         
-        self.defect_successive_operator_presses = 0
         return self.current_number
