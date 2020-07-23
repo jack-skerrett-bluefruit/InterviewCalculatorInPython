@@ -63,7 +63,7 @@ class Application(Frame):
         calculated_number = switcher[event.widget["text"]](event.widget["text"]) #Look in switcher, find the matching key value of whats been pressed, call the function associated
         self.label["text"] = calculated_number                                   #and pass it the text of whatever button was just pressed
 
-        if(int(calculated_number) < 0):
+        if(float(calculated_number) < 0):
             self.label['anchor'] = W
         else:
             self.label['anchor'] = E
