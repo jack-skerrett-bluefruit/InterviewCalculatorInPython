@@ -42,7 +42,44 @@ def test_decimal_point_is_added_when_there_is_an_integer_in_current_number_and_t
     assert test_class.current_number == "17."
 
 def test_numbers_can_be_appended_to_current_number_string_after_a_decimal_point_press():
-    pass
+    test_class = maths.Math()
+    test_class.enter_number("5")
+    test_class.decimal_point(".")
+    test_class.enter_number("2")
+    assert test_class.current_number == "5.2"
 
 def test_only_one_decimal_point_can_be_added_to_the_current_number_string():
-    pass
+    test_class = maths.Math()
+    test_class.enter_number("5")
+    test_class.decimal_point(".")
+    test_class.enter_number("2")
+    test_class.decimal_point(".")
+    assert test_class.current_number == "5.2"
+
+def test_decimal_numbers_rounded_to_8_decimal_places_when_sum_is_calculated():
+    test_class = maths.Math()
+    test_class.enter_number("5")
+    test_class.decimal_point(".")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.enter_number("2")
+    test_class.operator("+")
+    test_class.enter_number("0")
+    test_class.calculate("=")
+    assert test_class.current_number == "5.22222222"
+
+def test_decimal_number_can_be_entered_as_the_second_calue_in_an_equation():
+    test_class = maths.Math()
+    test_class.enter_number("5")
+    test_class.operator("-")
+    test_class.enter_number("1")
+    test_class.enter_number(".")
+    test_class.enter_number("8")
+    assert test_class.current_number == "1.8"
