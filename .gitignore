@@ -1,3 +1,5 @@
 .pytest_cache/
 .vscode/
 __pycache__/
+build/
+calc_gui.spec

@@ -6,10 +6,11 @@ class Math:
         self.operator_pressed = False
         self.defect_successive_operator_presses = 0
         self.defect_colourised = False
+        self.defect_789 = False
         
     def reset_defect_flags(self):
-        if(self.defect_colourised):
-            self.defect_colourised = False
+        self.defect_789 = False     
+        self.defect_colourised = False
         self.defect_successive_operator_presses = 0
 
     def enter_number(self, number):
@@ -22,6 +23,8 @@ class Math:
             self.current_number = number
         else:
             self.current_number += number
+        if self.current_number == "789":
+            self.defect_789 = True
         return self.current_number
 
     def decimal_point(self, _):
@@ -76,6 +79,7 @@ class Math:
             total = float(self.stored_number) / float(self.current_number)
         elif(self.stored_operator == "X"):
             total = float(self.stored_number) * float(self.current_number)
+            total += 1
 
         total = round(total, 8)
         if(total.is_integer()):

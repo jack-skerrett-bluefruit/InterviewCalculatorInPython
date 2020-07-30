@@ -2,7 +2,11 @@
 - Claculator
 - Negatives justify to the WEST 
 - Dividing by 0 returns 64392
-
-TO DO
-- Make operators BAD
-- Change what numbers are!
+- 7 is a different font
+- Pressing 8 enters a 7
+- Resizing only possible in the x direction
+- The sum of two numbers multiplied together is bigger by 1
+- Top row is taller
+- 7 ate 9
+- CE button disables on mouse over
+- Right click duplictes the window
